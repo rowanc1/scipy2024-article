@@ -1,0 +1,63 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 8dc87513-9532-4ca3-af4b-f5a848c49cd4
+  title: Transformative Approaches in Science Communication
+  subtitle: Using Curvenote and MyST Markdown to Improve Science Communication
+  keywords:
+    - scientific communication
+    - publishing
+    - open science
+  authors:
+    - name: Rowan Cockett
+      orcid: 0000-0002-7859-8394
+      github: rowanc1
+      email: rowan@curvenote.com
+    - name: Steve Purves
+      orcid: 0000-0002-0760-5497
+      github: stevejpurves
+      email: steve@curvenote.com
+    - name: Franklin Koch
+      orcid: 0000-0002-6393-7058
+      github: fwkoch
+    - name: Mike Morrison
+      orcid:
+      github:
+  license: CC-BY-4.0
+  abbreviations:
+    AST: Abstract Syntax Tree
+    DOI: Digital Object Identifier
+    MyST: Markedly Structured Text
+    CLI: Command Line Interface
+    HTML: Hypertext Markup Language
+    PDF: Portable Document Format
+    AMS: American Mathematical Society
+    RRID: Research Resource Identifier
+    CSS: Cascading Style Sheet
+    CRediT: Contributor Roles Taxonomy
+    ROR: Research Organization Registry
+    ISNI: International Standard Name Identifier
+    NISO: National Information Standards Organization
+    YAML: Yet Another Markup Language
+    WASM: WebAssembly
+    REES: Reproducible Execution Environment Specification
+    URL: Uniform Resource Locator
+    XML: Extensible Markup Language
+    PID: Persistent Identifier
+    ID: Identifier
+    JATS: Journal Article Tag Suite
+    VoR: Version of Record
+    RST: reStructuredText
+    API: Application Programming Interface
+    JSON: JavaScript Object Notation
+    OA: Open Access
+    LOCKSS: Lots Of Copies Keep Stuff Safe
+    CLOCKSS: Controlled LOCKSS (Lots Of Copies Keep Stuff Safe)
+    APC: Article Processing Charge
+  numbering:
+    headings: true
+site:
+  template: article-theme
+  title: Transformative Approaches in Science Communication
+  domains:
+    - rowanc1-mystpaper.curve.space
