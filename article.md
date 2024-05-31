@@ -170,7 +170,7 @@ These tools build on the Jupyter protocols and reuse components from the Jupyter
 
 ```{figure} ./images/thebe.*
 :label: fig:thebe
-Embedded notebook cells with live computation directly in an articles with computation backed by Jupyter. These can be running on BinderHub or directly in your browser through JuptyerLite.
+Embedded notebook cells with live computation directly in an articles with computation backed by Jupyter. These can be running on BinderHub or directly in your browser through JupyterLite.
 ```
 
 ::::
