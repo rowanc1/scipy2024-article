@@ -91,18 +91,14 @@ Through the lens of MyST Markdown and Curvenote, this paper will explore how the
 
 ## Authoring Tools
 
-[A bit of background on MyST, history, talk about Quarto, Pandoc and discuss CLI was originally part of Curvenote]
+MyST Markdown (Markedly Structured Text, <https://mystmd.org>) is a community-driven markup language that is a superset of [CommonMark](https://commonmark.org/) (a standard form of Markdown) with special syntax for citations, cross-references, and block and inline extension points called "directives" and "roles". The block-level content provides multi-line containers surrounded by either backticks or colons; examples include callout panels, figures, equations and tables (see [documentation](https://mystmd.org)).
+MyST is influenced by [reStructuredText (RST)](https://en.wikipedia.org/wiki/reStructuredText) and [Sphinx](https://www.sphinx-doc.org) – pulling on the nomenclature and introducing additional standards where appropriate.
+There are also many similarities of MyST Markdown to R-Markdown [@10.1201/9781138359444], Pandoc, and Quarto (<https://quarto.org>), especially in citation syntax and frontmatter structure.
+The initial use case driving the development and design of MyST Markdown has been [JupyterBook](https://jupyterbook.org), which can create educational online textbooks and tutorials with Jupyter Notebooks and narrative content written in MyST.
 
-Quarto, Pandoc (not just translation, but the whole workflow)
-Idyll lang, MDX
-RST
-Curvenote, Overleaf
+In 2022, the Executable Books project (<https://executablebooks.org>, which hosts Jupyter Book and MyST) started work on `mystmd` command line interface (CLI), which was initially developed as the [Curvenote CLI](https://curvenote.com/docs/cli), and later transferred to the ExecutableBooks project. At its core, MyST adheres to the [CommonMark](https://commonmark.org/) standard, ensuring a familiar foundation for those versed in traditional Markdown. However, MyST distinguishes itself through the introduction of specialized syntax aimed at facilitating scientific discourse including citations, cross-references, figures, proofs, equations, and tables. There is also specialized support for the types of metadata that are important to collect for scientific articles (funding, ORCIDs, CRediT Roles, etc.).
 
-MyST Markdown, or Markedly Structured Text, offers a powerful extension to the conventional markdown, marrying the simplicity of markdown syntax with advanced features tailored for scientific writing and documentation. MyST incorporates a suite of functionalities designed to improve the quality, interactivity, and comprehensiveness of both static and computational documents.
-
-### MyST Markdown Overview
-
-At its core, MyST adheres to the [CommonMark](https://commonmark.org/) standard, ensuring a familiar foundation for those versed in traditional Markdown. However, MyST distinguishes itself through the introduction of specialized syntax aimed at facilitating scientific discourse including citations, cross-references, figures, proofs, equations, and tables. There is also specialized support for the types of metadata that are important to collect for scientific articles (funding, ORCIDs, CRediT Roles, etc.).
+This article will not attempt to describe the markup syntax directly, for that we suggest browsing the documentation at <https://mystmd.org>, instead we will focus our attention on the use cases for scientific publishing that we are trying to make as easy as possible. Specifically, the ability to add persistent identifiers (PIDs) and links to other structured content; hover previews to show details on demand; integrating live computational content and interactive figures; and exporting to many different formats including those used by scholarly publishing.
 
 ### Utility of Links and Identifiers
 
