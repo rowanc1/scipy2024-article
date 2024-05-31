@@ -68,6 +68,7 @@ project:
     CLOCKSS: Controlled LOCKSS (Lots Of Copies Keep Stuff Safe)
     APC: Article Processing Charge
     JOSS: Journal of Open Source Software
+    ORCID: Open Researcher and Contributor ID
   numbering:
     headings: true
 site:
