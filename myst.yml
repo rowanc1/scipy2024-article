@@ -2,8 +2,8 @@
 version: 1
 project:
   id: 8dc87513-9532-4ca3-af4b-f5a848c49cd4
-  title: Transformative Approaches in Science Communication
-  subtitle: Using Curvenote and MyST Markdown to Improve Science Communication
+  title: Transformative Approaches in Scientific Publishing
+  subtitle: Using MyST Markdown and Curvenote
   keywords:
     - scientific communication
     - publishing
@@ -54,6 +54,7 @@ project:
     LOCKSS: Lots Of Copies Keep Stuff Safe
     CLOCKSS: Controlled LOCKSS (Lots Of Copies Keep Stuff Safe)
     APC: Article Processing Charge
+    JOSS: Journal of Open Source Software
   numbering:
     headings: true
 site:
