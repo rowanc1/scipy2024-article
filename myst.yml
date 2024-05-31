@@ -3,7 +3,7 @@ version: 1
 project:
   id: 8dc87513-9532-4ca3-af4b-f5a848c49cd4
   title: Transformative Approaches in Scientific Publishing
-  subtitle: Using MyST Markdown and Curvenote
+  subtitle: Using MyST Markdown and Curvenote tools to encourage continuous science practices
   keywords:
     - scientific communication
     - publishing
@@ -11,18 +11,31 @@ project:
   authors:
     - name: Rowan Cockett
       orcid: 0000-0002-7859-8394
+      affiliation:
+        - Curvenote Inc.
+        - Executable Books
       github: rowanc1
+      twitter: rowancockett
       email: rowan@curvenote.com
     - name: Steve Purves
       orcid: 0000-0002-0760-5497
+      affiliation:
+        - Curvenote Inc.
+        - Executable Books
       github: stevejpurves
+      twitter: stevejpurves
       email: steve@curvenote.com
     - name: Franklin Koch
       orcid: 0000-0002-6393-7058
+      affiliation:
+        - Curvenote Inc.
+        - Executable Books
       github: fwkoch
     - name: Mike Morrison
-      orcid:
-      github:
+      orcid: 0000-0002-1324-8801
+      twitter: mikemorrison
+      affiliation:
+        - Curvenote Inc.
   license: CC-BY-4.0
   abbreviations:
     AST: Abstract Syntax Tree
