@@ -85,6 +85,8 @@ There are two inter-related capabilities that are necessary for this transition:
 
 Through the lens of MyST Markdown and Curvenote, this paper will explore how these tools can help to address critical gaps in current scientific publishing practices. Our motivation is to enhance the _speed_ and _impact_ of research dissemination, fostering a scientific ecosystem that is more collaborative, reproducible, and equipped to tackle the urgent global challenges of our time.
 
+(sec:authoring)=
+
 ## Authoring Tools
 
 [A bit of background on MyST, history, talk about Quarto, Pandoc and discuss CLI was originally part of Curvenote]
@@ -180,6 +182,8 @@ Export to PDF using LaTeX or Typst is supported for hundreds of different journa
 
 With single-source publishing, we can rely on rich transformations of the source content that can create professional PDFs, interactive HTML, and structured metadata such as JATS XML, which is the current standard for scientific archiving and text-mining.
 
+(sec:publishing)=
+
 ## Publishing
 
 There are many ways to publish a MyST Markdown site, including using GitHub Pages, self-hosting the HTML outputs. To create a GitHub pages output you can run `myst init --gh-pages`, which will walk you through the steps of creating a GitHub action to publish your content as a static website. In addition to static HTML, the native way that MyST is represented is through content-as-data, which is a collection of JSON files that represent the full documents and all associated metadata (if you are reading this online, you can add a `.json` to the URL to access the content). When run locally, the MyST content server is dynamically creating HTML based on these JSON files (very similar to XML-based single source publishing [@10.1109/MITP.2003.1176491], but using modern web-tooling). This server-side approach has a number of advantages, in that it allows you to maintain a journal/site theme, without having to upgrade all content. This is the approach that we take with Curvenote journals, and provide managed services to maintain journal sites as well as provide the editorial management tools and workflows.
@@ -187,6 +191,8 @@ There are many ways to publish a MyST Markdown site, including using GitHub Page
 In 2024, Curvenote was asked to improve our integrations to GitHub to support the SciPy Proceedings and re-imagine a MyST based publishing approach that uses GitHub for open-peer-review. The process previously used technology shared with the Journal of Open Source Software (JOSS), which popularized this approach [@10.7717/peerj-cs.147]. The workflow was refactored to use MyST Markdown for the authoring process[^also-latex] (previously RST and LaTeX were supported, and the build process was in Sphinx), and the submission process now uses the [Curvenote CLI](https://github.com/curvenote/curvenote) to build, check and preview the content of each commit, using GitHub actions for the integration to GitHub.
 
 [^also-latex]: LaTeX is also supported by parsing and rendering directly with the `mystmd` CLI, this is completed through [`@unified-latex`](https://github.com/siefkenj/unified-latex).
+
+(sec:checks)=
 
 ### Structural Checks
 
@@ -206,6 +212,8 @@ Running `curvenote check` on a SciPy Proceedings article to check for missing DO
 
 ::::
 
+(sec:automation)=
+
 ### Automated Actions
 
 Upon submission of there are a number of checks that are run and a submission or draft is deployed to Curvenote's platform, which stores the structured MyST project. We utilized GitHub Actions to automate initial checks and generate previews of submissions (via https://github.com/curvenote/actions). The actions automatically generate a preview of the manuscript exactly as it would appear in publication using MyST Markdown, and these are linked within the pull request comments for easy access by reviewers [@fig:actions].
@@ -216,11 +224,15 @@ Upon submission of there are a number of checks that are run and a submission or
 An example of a comment by a GitHub action, which shows the checks and preview of the article directly. The checks in this example have promoted the author to improve metadata, see [](https://github.com/scipy-conference/scipy_proceedings/pull/911).
 ```
 
-### Case Studies
+### Use Cases
 
-AGU
-Physiome
-SciPy
+The rapid feedback in authoring [@sec:authoring] coupled with structural checks [@sec:checks], automation [@sec:automation], and archiving of the content opens workflows for varied sizes of teams to adopt these _continuous science_ practices. Whether it is individuals publishing static MyST Markdown sites, lab-groups creating a better archive to highlight the research contributions of their team (e.g. [Applied Geophysics](https://appliedgeophysics.org)), conference proceedings (e.g. [SciPy Proceedings](https://proceedings.scipy.org)), or more formalized society journals (e.g. [Physiome](https://journal.physiomeproject.org), [American Geophysical Union](https://agu.curve.space), [Elemental Microscopy](https://elementalmicroscopy.com/)) [@fig:use-cases].
+
+:::{figure} images/use-cases.png
+:label: fig:use-cases
+:width: 90%
+MyST Markdown and Curvenote tools can help lower the barrier to entry for scientific publishing workflows for journals, research institutes, conferences, private consortiums, universities, and lab groups.
+:::
 
 ## Conclusions
 
