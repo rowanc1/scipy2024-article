@@ -182,18 +182,39 @@ With single-source publishing, we can rely on rich transformations of the source
 
 ## Publishing
 
-- Build actions (`myst init --gh-pages`) or scipy, which uses additional preview capabilities.
-- Checks
+There are many ways to publish a MyST Markdown site, including using GitHub Pages, self-hosting the HTML outputs. To create a GitHub pages output you can run `myst init --gh-pages`, which will walk you through the steps of creating a GitHub action to publish your content as a static website. In addition to static HTML, the native way that MyST is represented is through content-as-data, which is a collection of JSON files that represent the full documents and all associated metadata (if you are reading this online, you can add a `.json` to the URL to access the content). When run locally, the MyST content server is dynamically creating HTML based on these JSON files (very similar to XML-based single source publishing [@10.1109/MITP.2003.1176491], but using modern web-tooling). This server-side approach has a number of advantages, in that it allows you to maintain a journal/site theme, without having to upgrade all content. This is the approach that we take with Curvenote journals, and provide managed services to maintain journal sites as well as provide the editorial management tools and workflows.
 
-::::{prf:example} Checks
+In 2024, Curvenote was asked to improve our integrations to GitHub to support the SciPy Proceedings and re-imagine a MyST based publishing approach that uses GitHub for open-peer-review. The process previously used technology shared with the Journal of Open Source Software (JOSS), which popularized this approach [@10.7717/peerj-cs.147]. The workflow was refactored to use MyST Markdown for the authoring process[^also-latex] (previously RST and LaTeX were supported, and the build process was in Sphinx), and the submission process now uses the [Curvenote CLI](https://github.com/curvenote/curvenote) to build, check and preview the content of each commit, using GitHub actions for the integration to GitHub.
+
+[^also-latex]: LaTeX is also supported by parsing and rendering directly with the `mystmd` CLI, this is completed through [`@unified-latex`](https://github.com/siefkenj/unified-latex).
+
+### Structural Checks
+
+The open-source Curvenote CLI (https://github.com/curvenote/curvenote) provides checks for the structure of a document to ensure it meets automated quality controls for things like references, valid links, author identifiers (e.g. ORCID), or funding information. Executing `curvenote check` in a MyST project will build the project and use the structured data to assess metadata (e.g. do authors provide ORCIDs), structural checks (e.g. does the article have an abstract; is the article below a word count?), and check that references have valid DOIs.
+
+We have designed these checks in a similar pattern to linting and/or unit-tests in scientific software, which continually give feedback on the structural-health of a code-base with near immediate feedback to authors [@eg:checks]. Authors can take action to improve their metadata directly, including DOIs, CRediT Roles, ORCIDs and structural checks such as word-count or missing sections. For example, in SciPy Proceedings in 2024, which used Curvenote checks for their submission system, required and optional metadata was improved by authors reacting to these automated checks without any intervention from the proceedings editorial team (e.g. [](https://github.com/scipy-conference/scipy_proceedings/pull/915) added CRediT roles, ORCIDs abbreviations, and DOIs to get a passing check [See @fig:actions]). This is a low-friction way of improving metadata at the time of authoring or submission to elevate content to standards the standards that are required for a certain type of publication (e.g. proceedings vs blog post vs peer-reviewed journal).
+
+::::{prf:example} Structural Checks and Metadata Checks
 :label: eg:checks
-asdf
+
+Specific checks can be setup for any kind of content being submitted with MyST, for example, a "Short Report" might have different length requirements or metadata standards than a "Research Article" or "Editorial". Using Curvenote, these checks can be configured for a specific venue or kind of article, for example, to check specifically for SciPy Proceedings articles, `curvenote check scipy --kind Article --collection 2024` can be run, where the list of checks is configured remotely by journal administrators.
+
+```{figure} ./images/checks.*
+:label: fig:checks
+Running `curvenote check` on a SciPy Proceedings article to check for missing DOIs, author ORCIDs, word-count and specific sections (e.g. abstract). These can be run in less than a few seconds both locally and through GitHub actions [@fig:actions], which provides a user interface on the checks.
+```
+
 ::::
 
-::::{prf:example} Actions
-:label: eg:actions
-asdf
-::::
+### Automated Actions
+
+Upon submission of there are a number of checks that are run and a submission or draft is deployed to Curvenote's platform, which stores the structured MyST project. We utilized GitHub Actions to automate initial checks and generate previews of submissions (via https://github.com/curvenote/actions). The actions automatically generate a preview of the manuscript exactly as it would appear in publication using MyST Markdown, and these are linked within the pull request comments for easy access by reviewers [@fig:actions].
+
+```{figure} ./images/gh-commits-and-checks.png
+:label: fig:actions
+:class: framed
+An example of a comment by a GitHub action, which shows the checks and preview of the article directly. The checks in this example have promoted the author to improve metadata, see [](https://github.com/scipy-conference/scipy_proceedings/pull/911).
+```
 
 ### Case Studies
 
